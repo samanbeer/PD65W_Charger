@@ -1121,7 +1121,7 @@
 	(footprint "Library_footprint:PD65W_module"
 		(layer "F.Cu")
 		(uuid "2d4fa60b-7b8d-48e6-8f25-87d02da3d30a")
-		(at 131.76 82.29)
+		(at 132.55 84.45)
 		(property "Reference" "U1"
 			(at 0 -0.5 0)
 			(unlocked yes)
@@ -1175,6 +1175,12 @@
 		(path "/3d0b3c86-625a-4394-a079-bc1c3228c75a")
 		(sheetname "/")
 		(sheetfile "PD65W_Charger.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -1187,6 +1193,18 @@
 			(fill no)
 			(layer "F.SilkS")
 			(uuid "cf69d0dd-cc38-43cb-a3d8-21f9a8e69ab1")
+		)
+		(fp_rect
+			(start -9.27 -6.42)
+			(end 9.27 6.42)
+			(radius 2)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "Edge.Cuts")
+			(uuid "665e3f88-d987-485d-a3a1-2f02865c5579")
 		)
 		(fp_rect
 			(start -12.23 -9.24)
@@ -1220,6 +1238,30 @@
 			(fill no)
 			(layer "F.Fab")
 			(uuid "5563f20e-2291-4614-9c73-df1d6ebab718")
+		)
+		(fp_text user "+"
+			(at 11.96 -6.6 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "89fca020-1074-4750-a9d5-69d4ae616f0a")
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "-"
+			(at 11.96 8.89 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "4554b948-9c49-494d-9055-4a4fb73efd74")
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
 		)
 		(fp_text user "${REFERENCE}"
 			(at 0 2.5 0)
@@ -3012,7 +3054,7 @@
 	(footprint "Display:ER_OLEDM0.91_1x-I2C"
 		(layer "F.Cu")
 		(uuid "7f434a2e-9554-4a72-82dc-cf07467766ff")
-		(at 122.425 58.495 90)
+		(at 110.6 71.41 90)
 		(descr "SSD1306 OLED module, 0.91 inch, 128x32, I2C (https://www.buydisplay.com/download/manual/ER-OLEDM0.91-1_Datasheet.pdf)")
 		(tags "EastRising")
 		(property "Reference" "U2"
