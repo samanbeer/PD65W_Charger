@@ -3647,6 +3647,12 @@
 		(uuid "62e8ba66-2b07-43c7-aeda-ce001affb368")
 	)
 	(junction
+		(at 71.12 49.53)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "74a7bf46-753f-4f58-8d64-add9ce5d4b70")
+	)
+	(junction
 		(at 128.27 137.16)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3663,12 +3669,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8e4ce4f1-2d74-4b64-a09f-20058ce5f2cd")
-	)
-	(junction
-		(at 71.12 49.53)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "98c0c57f-9ba9-40d1-b368-c49e0d143c27")
 	)
 	(junction
 		(at 151.13 125.73)
@@ -3743,7 +3743,7 @@
 		(uuid "f74805a6-c5a5-4107-a8e4-7d7c38e4b243")
 	)
 	(no_connect
-		(at 109.22 44.45)
+		(at 152.4 46.99)
 		(uuid "0aff5770-58af-48df-9687-dae94f463616")
 	)
 	(no_connect
@@ -4662,16 +4662,6 @@
 	)
 	(wire
 		(pts
-			(xy 153.67 46.99) (xy 152.4 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f4a18a6a-eccd-4923-ac59-ccf20b1e6549")
-	)
-	(wire
-		(pts
 			(xy 148.59 132.08) (xy 151.13 132.08)
 		)
 		(stroke
@@ -4794,7 +4784,7 @@
 		)
 		(uuid "40ff80d9-49d7-4376-a6ba-d5be306feac7")
 	)
-	(label "D10"
+	(label "D3"
 		(at 66.04 133.35 180)
 		(effects
 			(font
@@ -4816,13 +4806,13 @@
 		)
 		(uuid "467f1920-5d36-4023-ab52-542f514f70ee")
 	)
-	(label "D10"
-		(at 153.67 46.99 0)
+	(label "D3"
+		(at 109.22 44.45 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "5a4152e6-def5-4035-819c-fce778b790a0")
 	)
@@ -6727,6 +6717,88 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 44.45 43.18 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "556e0e39-99d0-462b-97b4-05e6f0b0ceca")
+		(property "Reference" "R1"
+			(at 46.99 41.9099 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "R10k"
+			(at 46.99 44.4499 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+			(at 42.672 43.18 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 44.45 43.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 44.45 43.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "3e6e1c9e-b100-47b7-b58b-2cb20d3ba9eb")
+		)
+		(pin "2"
+			(uuid "aa28e59f-4ff4-45ec-b53f-0422c5835211")
+		)
+		(instances
+			(project "PD65W_Charger"
+				(path "/f68aa78b-d8fe-48c9-a9fd-167d27b7d44f"
+					(reference "R1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:Barrel_Jack_MountingPin")
 		(at 205.74 41.91 0)
 		(unit 1)
@@ -7135,7 +7207,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 44.45 43.18 0)
+		(at 71.12 43.18 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7146,7 +7218,7 @@
 		(fields_autoplaced yes)
 		(uuid "63d4d71e-ebf9-4257-a52c-f424b6923dd0")
 		(property "Reference" "R2"
-			(at 46.99 41.9099 0)
+			(at 73.66 41.9099 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7157,7 +7229,7 @@
 			)
 		)
 		(property "Value" "R10k"
-			(at 46.99 44.4499 0)
+			(at 73.66 44.4499 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7168,7 +7240,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
-			(at 42.672 43.18 90)
+			(at 69.342 43.18 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7179,7 +7251,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 44.45 43.18 0)
+			(at 71.12 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7190,7 +7262,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 44.45 43.18 0)
+			(at 71.12 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8153,88 +8225,6 @@
 			(project "PD65W_Charger"
 				(path "/f68aa78b-d8fe-48c9-a9fd-167d27b7d44f"
 					(reference "C3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 71.12 43.18 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "869341c8-5f28-4724-9547-d878661bd97c")
-		(property "Reference" "R1"
-			(at 73.66 41.9099 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "R10k"
-			(at 73.66 44.4499 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
-			(at 69.342 43.18 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 71.12 43.18 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 71.12 43.18 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "2ab588aa-33ad-4aa5-accf-79240718e616")
-		)
-		(pin "2"
-			(uuid "2150fba5-0bb6-4012-8642-a99b83f902d0")
-		)
-		(instances
-			(project "PD65W_Charger"
-				(path "/f68aa78b-d8fe-48c9-a9fd-167d27b7d44f"
-					(reference "R1")
 					(unit 1)
 				)
 			)
