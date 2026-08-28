@@ -32,6 +32,11 @@
 
 #define TEMP_FAN_OFF        35
 #define TEMP_FAN_MAX        60
+
+#define SENSOR_INTERVAL_MS  100
+#define DISPLAY_INTERVAL_MS 250
+#define EFFICIENCY_FACTOR   0.92f // module Efficiency 
+
 int fan_speed_pwm;
 
 INA226_WE ina226(I2C_INA_ADDRESS);
@@ -43,10 +48,15 @@ int temp_2;
 int input_voltage;
 int output_voltage;
 int input_amp;
+int output_amp;
+
+unsigned long last_sensor_time = 0;
+unsigned long last_display_time = 0;
 
 void measure_temperatures();
 void measure_output_voltage();
 void measure_ina226();
+void calculate_output_current();
 void control_fan();
 void update_display();
 
@@ -65,11 +75,21 @@ void setup() {
 }
 
 void loop() {
-  measure_temperatures();
-  measure_output_voltage();
-  measure_ina226();
-  control_fan();
-  update_display();
+  unsigned long current_time = millis();
+
+  if (current_time - last_sensor_time >= SENSOR_INTERVAL_MS) {
+    last_sensor_time = current_time;
+    measure_temperatures();
+    measure_output_voltage();
+    measure_ina226();
+    calculate_output_current();
+    control_fan();
+  }
+
+  if (current_time - last_display_time >= DISPLAY_INTERVAL_MS) {
+    last_display_time = current_time;
+    update_display();
+  }
 }
 
 void measure_temperatures() {
@@ -95,6 +115,16 @@ void measure_output_voltage() {
 void measure_ina226() {
   input_voltage = (int)(ina226.getBusVoltage_V() * 1000.0f);
   input_amp = (int)ina226.getCurrent_mA();
+}
+
+void calculate_output_current() {
+  if (output_voltage > 1000) {
+    float pin_mw = (float)input_voltage * (float)input_amp;
+    float pout_mw = pin_mw * EFFICIENCY_FACTOR;
+    output_amp = (int)(pout_mw / (float)output_voltage);
+  } else {
+    output_amp = 0;
+  }
 }
 
 void control_fan() {
@@ -125,7 +155,9 @@ void update_display() {
   display.setCursor(0, 16);
   display.print("OUT: ");
   display.print(output_voltage / 1000.0f, 2);
-  display.print("V");
+  display.print("V ");
+  display.print(output_amp / 1000.0f, 2);
+  display.print("A");
 
   display.setCursor(0, 32);
   display.print("PWR: ");
