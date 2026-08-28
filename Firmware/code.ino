@@ -8,6 +8,9 @@ int input_voltage;
 int output_voltage;
 int input_amp;
 
+//##### TEMPERATURE THINGS ######
+int temp_
+
 void setup() {
 
 }
