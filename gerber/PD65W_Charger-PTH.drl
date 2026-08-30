@@ -1,0 +1,95 @@
+M48
+; DRILL file KiCad 10.0.6-10.0.6~ubuntu24.04.1 date 2026-08-30T16:52:37
+; FORMAT={-:-/ absolute / metric / decimal}
+; #@! TF.CreationDate,2026-08-30T16:52:37+02:00
+; #@! TF.GenerationSoftware,Kicad,Pcbnew,10.0.6-10.0.6~ubuntu24.04.1
+; #@! TF.FileFunction,Plated,1,2,PTH
+FMAT,2
+METRIC
+; #@! TA.AperFunction,Plated,PTH,ViaDrill
+T1C0.300
+; #@! TA.AperFunction,Plated,PTH,ViaDrill
+T2C0.400
+; #@! TA.AperFunction,Plated,PTH,ComponentDrill
+T3C0.750
+; #@! TA.AperFunction,Plated,PTH,ComponentDrill
+T4C0.800
+; #@! TA.AperFunction,Plated,PTH,ComponentDrill
+T5C0.889
+; #@! TA.AperFunction,Plated,PTH,ComponentDrill
+T6C1.000
+; #@! TA.AperFunction,Plated,PTH,ComponentDrill
+T7C1.100
+; #@! TA.AperFunction,Plated,PTH,ComponentDrill
+T8C1.200
+; #@! TA.AperFunction,Plated,PTH,ComponentDrill
+T9C1.750
+%
+G90
+G05
+T1
+X165.0Y-107.45
+X169.0Y-103.5
+X169.275Y-96.155
+X178.21Y-90.0
+T2
+X172.345Y-99.945
+X175.375Y-102.975
+X179.13Y-92.28
+X182.92Y-73.68
+T3
+X151.5Y-107.0
+X152.77Y-105.73
+X152.77Y-108.27
+T4
+X163.0Y-86.5
+X165.54Y-86.5
+X174.46Y-76.0
+X177.0Y-76.0
+T5
+X172.92Y-96.76
+X172.92Y-112.0
+X175.46Y-96.76
+X175.46Y-112.0
+X178.0Y-96.76
+X178.0Y-112.0
+X180.54Y-96.76
+X180.54Y-112.0
+X183.08Y-96.76
+X183.08Y-112.0
+X185.62Y-96.76
+X185.62Y-112.0
+X188.16Y-96.76
+X188.16Y-112.0
+T6
+X143.97Y-99.02
+X146.51Y-99.02
+X160.38Y-110.8
+X162.92Y-110.8
+X165.46Y-110.8
+X168.0Y-110.8
+T7
+X146.0Y-102.4
+X153.62Y-102.4
+T8
+X143.855Y-93.922
+X159.355Y-93.922
+T9
+X150.4Y-98.4
+T6
+G00X177.0Y-85.707
+M15
+G01X177.0Y-83.707
+M16
+G05
+G00X181.0Y-80.007
+M15
+G01X179.0Y-80.007
+M16
+G05
+G00X183.0Y-85.707
+M15
+G01X183.0Y-83.707
+M16
+G05
+M30
