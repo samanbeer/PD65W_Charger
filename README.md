@@ -53,16 +53,20 @@ That inspired me to build a complete, custom PCBbased smart charger from scratch
 </p>
 
 ### 3D Enclosure (Fusion 360)
-*Custom 3D printable enclosure designed in Autodesk Fusion 360 with optimized airflow ducts, snap-fit lid, OLED hole, and mounting cutouts.*
+*Custom 3D printable enclosure designed in Autodesk Fusion 360 with optimized airflow ducts, snap-fit lid, OLED hole, and mounting cutouts. All CAD and 3D model files (`.f3z`, `.step`) are located in the [`CAD/`](CAD/) folder.*
 
 <p align="center">
-  <img src="images/from-fusion/case_render1.png" alt="Fusion 360 Case Render 1" width="48%">
-  <img src="images/from-fusion/case_render2.png" alt="Fusion 360 Case Render 2" width="48%">
+  <img src="images/from-fusion/case_rendered.png" alt="Fusion 360 Case Render Front" width="48%">
+  <img src="images/from-fusion/case_rendered2.png" alt="Fusion 360 Case Render Rear" width="48%">
 </p>
 
 <p align="center">
-  <img src="images/from-fusion/case_exploded.png" alt="Fusion 360 Exploded View" width="48%">
-  <img src="images/from-fusion/case_internal.png" alt="Fusion 360 Internal Airflow Layout" width="48%">
+  <img src="images/from-fusion/case1.png" alt="Fusion 360 Case Internal Assembly" width="48%">
+  <img src="images/from-fusion/case2.png" alt="Fusion 360 Internal PCB Placement" width="48%">
+</p>
+
+<p align="center">
+  <img src="images/from-fusion/case3.png" alt="Fusion 360 Case Model View" width="48%">
 </p>
 
 ---
