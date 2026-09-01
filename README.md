@@ -1,4 +1,4 @@
-# PD65W Smart Charger & Power Monitor
+# PD65W Smart Charger 
 
 [![Hack Club Forge](https://img.shields.io/badge/Hack%20Club-Forge%20Project-ec3750?style=flat&logo=hackclub)](https://forge.hackclub.com/projects/1660)
 [![KiCad](https://img.shields.io/badge/KiCad-v9%2B-blue?style=flat&logo=kicad)](https://www.kicad.org)
@@ -8,27 +8,27 @@
 
 ---
 
-## Project Overview & Purpose
+## Project Overview
 
-- **What is it?** A smart, compact 65W USB Type-C with Power Delivery desktop charging station and real-time power telemetry monitor powered by a Seeed Studio XIAO RP2040 microcontroller, with active cooling, an I2C OLED display, and a custom Fusion 360 3D-printed enclosure.
-- **What does it do?** It takes a wide DC barrel jack input (9V–24V DC from some laptop power bricks, or power bricks) and converts it into fast-charging USB-PD profiles (5V, 9V, 12V, 15V, and 20V up to 65W / 3.25A) for laptops, phones, tablets, power banks and lot moroe what has USB-C. While charging, an onboard **INA226** 16-bit power monitor and dual **NTC thermistors** measure input/output voltages, current, power draw, and component temperatures. The RP2040 dynamically adjusts a 5V cooling fan via PWM and renders live stats on a 0.91" OLED display.
-- **Why does it exist?** Standard USB-C chargers are sealed boxes with no insight into real power draw or conversion efficiency. Also, compact 65W modules generate high heat under sustained loads that quickly cause thermal throttling and case melting. This project provides an open-source, actively cooled, and fully transparent desktop power station that gives old DC power bricks a second life.
+- **What is it?**  It is a fast 65W charger with Powerdelivery, but its SMART! It has XIAO RP2040 MCU inside and if you want to know more then read more below! 
+- **What does it do?**  Belive or not its charging phone :O   Well, it is also charging modern notebooks and all other things, that have USB-C, with a maximum power of 65W which is really good. And WHILE it is charging your device, the RP2040 is with help of INA226 chip measuring input/output Voltage and Current and displaing it on 128x32 display. 
+Also the chragers can be really hot while charging, but not this one. Why? Because this one has a FAN! And if the RP2040 starts to measure big temperature on thermistors then it will adjust FAN speed to cool it off.
+- **Why does it exist?** Because normal charger from shops are boring, and with this charger you can see how much current and how big voltage is flowing to your phone! But also a good point why does this exist is to **reuse** old adapters from laptops or routers that have 9-24V.
 
 ---
 
-## Why I Made This Project
+## Why I Made This
 
-A couple of months ago, I bought a compact 65W USB-PD step-down module on AliExpress to charge my phone and laptop from an old 20V laptop adapter. I designed a simple 3D-printed enclosure for it (which I shared on [MakerWorld](https://makerworld.com/en/models/3175390-mini-pd-65w-trigger-charger-8-30v-case#profileId-3590634)). 
+A few months ago, I bought a small PD65W module on AliExpress to charge my phone and laptop from old 20V laptop adapter. I designed a simple 3D printed enclosure for it (which I also shared on [MakerWorld](https://makerworld.com/en/models/3175390-mini-pd-65w-trigger-charger-8-30v-case#profileId-3590634)). 
 
-However, when I connected a 65W power bank, the module overheated severely! Using a taped 10kΩ thermistor and multimeter, I measured surface temperatures over **55°C**, and the internal heat began melting and warping the PLA enclosure. And yes, I could just print it in PETG or ASA but that would not solve problem for this extreme heat.
+But when I connected a 65W power bank, and it was running at max power, the module and adapter was extremely hot! I also taped 10kΩ thermistor on the top of the power source on surface and I measured with multimeter temperatures over 55°C, and the internal heat was melting the PLA enclosure. And yes, I could just print it in PETG or ASA but that would not solve problem for this extreme heat.
 
-That inspired me to build a complete, custom PCBbased smart charger from scratch that fixes every flaw of the original setup:
+That inspired me to build a complete, custom PCB based smart charger that fixes issues of that old setup:
 
-1. **Active Dynamic Cooling:** By adding a 25x25x6mm 5V fan with dedicated intake and exhaust air channels, the charger stays cool under continuous 65W loads without overheating.
-2. **Dual NTC Temperature Monitoring:** One thermistor sits directly on the PD65W power module, and another monitors ambient enclosure temperature, giving the RP2040 closed-loop thermal feedback.
-3. **Integrated Live OLED Telemetry:** Instead of using external USB inline meters, an integrated **INA226** sensor and 0.91" OLED screen display live input voltage, input current, output voltage, output current, total wattage, temperatures, and fan speed.
-4. **Repurposing Surplus DC Power Bricks:** Upcycling old 19V–24V laptop chargers and DC adapters into modern, high-speed USB-C PD power supplies.
-5. **Hands-on Mixed-Signal PCB Design:** Designing a complete power board in KiCad, building a 24V-to-5V synchronous buck converter (AP63205), routing wide 2mm high-current copper tracks, and modeling a precision snap-fit enclosure in Autodesk Fusion 360.
+1. **Cooling:** Added a 25x25x6mm 5V fan with holes for intake and exhaust
+2. **2 Thermistors:** One thermistor is directly on the PD65W module, and second one is monitoring enclosure temperature
+3. **OLED Display:** "0.91" OLED screen displays input voltage, input current, output voltage, output current, total wattage, temperatures, and fan speed **All in real time**.
+5. **And lot more**
 
 ---
 
@@ -53,7 +53,7 @@ That inspired me to build a complete, custom PCBbased smart charger from scratch
 </p>
 
 ### 3D Enclosure (Fusion 360)
-*Custom 3D printable enclosure designed in Autodesk Fusion 360 with optimized airflow ducts, snap-fit lid, OLED hole, and mounting cutouts. All CAD and 3D model files (`.f3z`, `.step`) are located in the [`CAD/`](CAD/) folder.*
+*Custom 3D printable enclosure designed in Fusion 360. All CAD and 3D model files (`.f3z`, `.step`) are located in the [`CAD/`](CAD/) folder.*
 
 <p align="center">
   <img src="images/from-fusion/case_rendered.png" alt="Fusion 360 Case Render Front" width="48%">
@@ -71,48 +71,26 @@ That inspired me to build a complete, custom PCBbased smart charger from scratch
 
 ---
 
-## Hardware Features & Technical Specifications
+### Schematic Blocks:
 
-| Feature | Specification |
-| --- | --- |
-| **Microcontroller** | Seeed Studio XIAO RP2040 (Dual-core ARM Cortex-M0+ @ 133MHz, 264KB SRAM, 2MB Flash) |
-| **Power Input** | DC Barrel Jack (5.5x2.1mm / 5.5x2.5mm standard), **9V – 24V DC** |
-| **Fast Charging Controller** | 65W High-Efficiency Synchronous USB-C PD Module (Supports PD3.0, QC4+, PPS, AFC, FCP) |
-| **USB-PD Output Profiles** | 5V @ 3A, 9V @ 3A, 12V @ 3A, 15V @ 3A, 20V @ 3.25A (**Up to 65W Max**) |
-| **Auxiliary Step-Down Buck** | Diodes Inc. **AP63205WU** (5V / 2A Synchronous Buck Converter, TSOT-23-6) |
-| **Power & Current Monitor** | Texas Instruments **INA226** (16-bit I2C Bi-directional Bus & Shunt Current Sensor) |
-| **Current Sense Shunt** | 10 mΩ (0.010 Ω), 2512 High-Power SMD Resistor (`R5`, Max 5A continuous) |
-| **Thermal Sensing** | 2x 10kΩ NTC Thermistors (`TH1`: PD module, `TH2`: Ambient board/regulator) |
-| **Active Cooling** | Sunon 5V DC Brushless Fan (25x25x6mm) driven by 2N2222 NPN Transistor via MCU PWM |
-| **Display** | 0.91" I2C OLED Monochrome Display (128x32 SSD1306, Address `0x3C`) |
-| **Enclosure** | Custom Fusion 360 3D-printed enclosure with dedicated fan air-intake and exhaust holes |
-
----
-
-### Key Circuit Subsystems:
-
-1. **AP63205 Step-Down Auxiliary Regulator:**
-   - Steps down the 9V–24V DC input to a stable, clean **5.0V rail** (up to 2A) to power the XIAO RP2040, the 0.91" OLED display, and the 5V cooling fan.
-   - Utilizes a 4.7µH high-current power inductor (`L1`) and low-ESR ceramic filter capacitors (`C2`, `C3`, `C4`).
-2. **INA226 High-Side Bus & Current Monitoring:**
-   - Sits on the primary input DC rail across a precision 10mΩ (2512 package) shunt resistor (`R5`).
+1. **AP63205 Step-Down Regulator:**
+   - Steps down the 9V–24V DC input to a stable, clean **5.0V** (up to 2A) to power the XIAO RP2040, the 0.91" OLED display, and the 5V fan.
+   - Uses a 4.7µH high-current power inductor (`L1`) and ceramic filter capacitors (`C2`, `C3`, `C4`).
+2. **INA226:**
+   - Sits on the primary input DC track through a precision 10mΩ (2512 size) shunt resistor (`R5`).
    - Communicates with the RP2040 over I2C (Address `0x40`), providing millivolt and milliamp precision for input power measurements.
-3. **Output Voltage & Power Estimation:**
+3. **Output Voltage and Power calculation:**
    - A 100kΩ / 10kΩ precision resistor divider (`R6`, `R7`) scales down the 0V–20V USB-PD output rail to a safe 0V–1.82V signal for the RP2040 ADC (`A2`).
-   - The firmware combines measured input power with known module conversion efficiency (~92%) and measured output voltage to calculate real-time output current and power delivery.
-4. **Dual NTC Temperature Probes & Intelligent Fan Control:**
-   - Two 10kΩ NTC thermistors (`TH1` on the PD module, `TH2` for ambient board temperature) are sampled with the Steinhart-Hart equation.
-   - The cooling fan is driven through a 2N2222 NPN transistor (`Q1`) with a 1N4148 flyback diode (`D1`). If temperatures stay under 35°C, the fan stays completely silent (0% PWM). Between 35°C and 60°C, the fan dynamically scales speed (70–255 PWM). If temperature exceeds 60°C, the fan runs at full 100% blast.
+   - The firmware combines measured input power with known module conversion efficiency (~92%) and measured output voltage to calculate real time output current and power.
+4. **2 Thermistors and Intelligent Fan:**
+   - The cooling fan is controlled through a 2N2222 transistor (`Q1`) with a 1N4148 flyback diode (`D1`). If temperatures stay under 35°C, the fan stays completely silent (0% PWM). Between 35°C and 60°C, the fan dynamically scales speed (70–255 PWM). If temperature exceeds 60°C, the fan spins up at full 100% speed.
 
 ---
 
-## 🛠️ Step-by-Step Assembly Guide
-
-> [!IMPORTANT]
-> Some components (such as the AP63205 TSOT-23-6 and INA226 TSSOP-10) have fine pitch leads (0.5mm - 0.95mm). Use a fine soldering iron tip or hot air rework station with plenty of quality rosin/no-clean flux and solder wick.
+## Assembly Guide
 
 ### Required Tools & Materials
-- Soldering iron (or hot air station)
+- Soldering iron 
 - Some good solder wire
 - Solder flux 
 - Tweezers
@@ -126,26 +104,20 @@ That inspired me to build a complete, custom PCBbased smart charger from scratch
    - Tack one corner pin, align all pins accurately under magnification, and solder the remaining pins.
 2. **Solder SMD Passives & Inductor:**
    - Solder the 10mΩ 2512 shunt resistor (`R5`).
-   - Solder 0805 SMD resistors (`R1–R4`, `R6–R9`) and ceramic capacitors (`C1–C6`).
+   - Solder 0805 SMD resistors (`R1–R4`, `R6–R9`) and capacitors (`C1–C6`).
    - Solder the 4.7µH power inductor (`L1`).
 3. **Solder Through-Hole Components:**
-   - Solder the 2N2222 NPN transistor (`Q1`), 1N4148 flyback diode (`D1`), and 2-pin Fan pin header (`J3`).
-   - Solder the DC Barrel Jack (`J1`). Ensure the solder joints fully penetrate the mechanical support pads.
-4. **Mount Core Modules:**
-   - Solder the **Seeed Studio XIAO RP2040** (`U3`) using female headers or solder direct-to-board as a surface module.
+   - Solder the 2N2222 transistor (`Q1`), 1N4148 diode (`D1`), and 2-pin Fan pin header (`J3`).
+   - Solder the DC Barrel Jack (`J1`). There must be a good contact so put a lot of solder here.
+4. **Modules:**
+   - Solder the **XIAO RP2040** (`U3`) using female headers or solder direct-to-board as a SMD.
    - Solder the **PD65W Module** (`U1`) and connect the power output feedback wire (`J2`) between the module's positive output terminal and the voltage divider pad.
    - Mount the **0.91" I2C OLED Display** (`U2`) to the I2C header pins.
-5. **Install NTC Thermistors (TH1, TH2):**
-   - Solder the thermistor leads.
+5. **Thermistors (TH1, TH2):**
+   - Solder the thermistor.
    - Fasten `TH1` against the PD65W module power inductor/MOSFETs using thermal tape.
-   - Position `TH2` near the board center / buck converter to monitor ambient enclosure temperature.
-6. **Pre-Power Quality & Continuity Checks:**
-   - Using a multimeter in continuity mode:
-     - Check between **DC IN+** and **GND** &rarr; Verify NO short circuit.
-     - Check between **5V Rail** and **GND** &rarr; Verify NO short circuit.
-     - Check between **3.3V Rail** and **GND** &rarr; Verify NO short circuit.
-   - Connect a 12V–20V DC power supply to the barrel jack and verify steady 5.0V output on the AP63205 buck stage before seating the XIAO/OLED.
-7. **Final Case & Fan Assembly:**
+   - Position `TH2` near the board center to monitor ambient enclosure temperature.
+6. **Final Case & Fan Assembly:**
    - Mount the 25mm 5V fan into the 3D-printed enclosure exhaust port and plug its 2-pin connector into `J3`.
    - Place the PCB and OLED into the case mounting hole and fasten with some tape.
 
@@ -153,32 +125,19 @@ That inspired me to build a complete, custom PCBbased smart charger from scratch
 
 ## Firmware & Software Setup
 
-The RP2040 runs an Arduino-based real-time telemetry and control loop:
-
-```mermaid
-flowchart TD
-    A["Boot: Setup I2C, INA226 & OLED"] --> B["Loop: Measure NTC1 & NTC2 Temperatures"]
-    B --> C["Sample Vout Divider (A2)"]
-    C --> D["Read INA226 (Bus Voltage & Input Current)"]
-    D --> E["Calculate Power & Output Current"]
-    E --> F["Adjust Fan PWM (Closed-loop 35°C-60°C curve)"]
-    F --> G["Render Telemetry to 0.91' OLED (Every 250ms)"]
-    G --> B
-```
-
 ### 1. Required Libraries
-Install the following libraries via the Arduino IDE Library Manager or PlatformIO:
+Install the following libraries via the Arduino IDE Library Manager:
 - `INA226_WE` (by Wolfgang Ewald)
 - `Adafruit GFX Library` (by Adafruit)
 - `Adafruit SSD1306` (by Adafruit)
-- `Wire` (Standard I2C library)
+- `Wire` (Standard I2C library) - should be included
 
 ### 2. Flashing the XIAO RP2040
-1. Connect the Seeed XIAO RP2040 to your computer via USB-C while holding down the **`BOOT`** button (or select the board port in Arduino IDE / PlatformIO).
+1. Connect the Seeed XIAO RP2040 to your computer via USB-C while holding down the **`BOOT`** button (or select the board port in Arduino IDE).
 2. Select Board: **Seeed Studio XIAO RP2040** 
 3. Open [`Firmware/code.ino`](Firmware/code.ino).
 4. Click **Upload**.
-5. Once uploaded, the OLED will initialize and show live sensor readings.
+5. Once uploaded, the OLED will start and will show all tha data.
 
 ### 3. OLED Telemetry Display Breakdown
 
@@ -231,13 +190,10 @@ Install the following libraries via the Arduino IDE Library Manager or PlatformI
 
 ## 🚀 How to Use
 
-1. **Connect DC Power:** Plug any 9V to 24V DC power source (such as a 19V laptop charger) into the rear barrel jack `J1`.
-2. **System Initialization:** The 0.91" OLED display immediately boots up, showing the measured input voltage (e.g. `19.50V`) and initial sensor temperatures.
-3. **Plug in Device:** Connect your laptop, phone, power bank, or USB-C device to the front USB-C port.
-4. **Observe Real-Time Telemetry:**
-   - Watch the negotiated USB-PD profile (5V, 9V, 15V, or 20V) and live charging current on the OLED.
-   - Observe total power draw in Watts.
-5. **Automatic Cooling:** Under heavy sustained loads (e.g., 45W–65W), the internal fan will automatically spin up smoothly based on thermistor readings, keeping components well within safe operating temperatures.
+1. **Connect DC Power:** Plug any 9V to 24V DC power source (almost every old laptop charger) into the rear barrel jack `J1`.
+2. **System Initialization:** The OLED display will lights up, showing the measured input voltages and temperatures.
+3. **Charge your Device!:** Just connect anything you have with USB-C! (even laptops)
+4. **Automatic Cooling:** Under heavy sustained loads (e.g., 45W–65W), the internal fan will automatically spin up smoothly based on thermistor readings, keeping components well within safe operating temperatures.
 
 ---
 
