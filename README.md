@@ -180,7 +180,7 @@ Install the following libraries via the Arduino IDE Library Manager:
 | **Shipping** | - | Combined Estimated Shipping | - | AliExpress & TME.eu | ~$10.00 |
 | **Total** | | | | | **~$65.62** |
 
->btw you can import every components that is from TME directly to TME cart with this file: [quick_order_TME.csv](quick_order_TME.csv) 
+>btw you can import every components that is from TME directly to TME cart with this file: [quick_order_TME.csv](PCB/quick_order_TME.csv) 
 
 <p>
 <img src="images/jlcpcbcart.png" width="48%">
