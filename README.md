@@ -56,6 +56,10 @@ That inspired me to build a complete, custom PCB based smart charger that fixes 
 *Custom 3D printable enclosure designed in Fusion 360. All CAD and 3D model files (`.f3z`, `.step`) are located in the [`CAD/`](CAD/) folder.*
 
 <p align="center">
+  <img src="images/full_assembly.png" alt="Fusion 360 Full Assembly" width="96%">
+</p>
+
+<p align="center">
   <img src="images/from-fusion/case_rendered.png" alt="Fusion 360 Case Render Front" width="48%">
   <img src="images/from-fusion/case_rendered2.png" alt="Fusion 360 Case Render Rear" width="48%">
 </p>
